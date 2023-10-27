@@ -1,0 +1,29 @@
+{
+	"name": "playwrightframework",
+	"version": "1.0.1",
+	"description": "This is a Legacy automation framework built on top playwright",
+	"main": "./build/index.js",
+	"scripts": {
+		"clean": "rimraf ./build",
+		"prepare": "husky install",
+		"build": "npm run clean && tsc && copyfiles ./build",
+		"addBuildCommit": "npx husky add .husky/pre-commit \"npm run build\"",
+		"npm:publish": "npm publish"
+	},
+	"keywords": [
+		"Playwright",
+		"Page factory",
+		"Page Object pattern"
+	],
+	"author": "Taofeek Adesina",
+	"license": "ISC",
+	"devDependencies": {
+		"@playwright/test": "^1.39.0",
+		"@types/node": "^20.8.9"
+	},
+	"dependencies": {
+		"copyfiles": "^2.4.1",
+		"husky": "^5.2.0",
+		"rimraf": "^5.0.5"
+	}
+}
