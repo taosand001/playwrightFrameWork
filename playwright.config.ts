@@ -17,7 +17,8 @@ try {
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+
+const mainConfig: PlaywrightTestConfig = {
 	testDir: './tests',
 	/* Run tests in files in parallel */
 	fullyParallel: true,
@@ -36,6 +37,7 @@ export default defineConfig({
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',
+		baseURL: process.env.BASE_URL,
 	},
 
 	/* Configure projects for major browsers */
@@ -82,4 +84,5 @@ export default defineConfig({
 	//   url: 'http://127.0.0.1:3000',
 	//   reuseExistingServer: !process.env.CI,
 	// },
-});
+};
+export default defineConfig({ ...userConfig, ...mainConfig });
