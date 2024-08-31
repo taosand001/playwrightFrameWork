@@ -6,3 +6,5 @@ export const HomePageELement = HomepageELement;
 export { LinkPage } from './pages/Link.page';
 export { ComponentPage } from './pages/Component.page';
 export { ButtonPage } from './pages/Button.page';
+export { defaultConfig } from './helpers/defaultConfig';
+export { mergeConfig } from './helpers/mergeConfig';
