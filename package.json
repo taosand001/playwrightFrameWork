@@ -1,6 +1,6 @@
 {
 	"name": "playwrightframework",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "This is a Legacy automation framework built on top playwright",
 	"main": "./build/index.js",
 	"scripts": {
@@ -18,12 +18,18 @@
 	"author": "Taofeek Adesina",
 	"license": "ISC",
 	"devDependencies": {
-		"@types/node": "^20.8.9"
+		"@types/node": "^20.8.9",
+		"dotenv": "^16.4.5"
 	},
+	"files": [
+		"index.ts",
+		"pages/",
+		"elements/"
+	],
 	"dependencies": {
+		"@playwright/test": "^1.39.0",
 		"copyfiles": "^2.4.1",
 		"husky": "^5.2.0",
-		"rimraf": "^5.0.5",
-		"@playwright/test": "^1.39.0"
+		"rimraf": "^5.0.5"
 	}
 }
