@@ -1,18 +1,28 @@
 import { defineConfig, devices, PlaywrightTestConfig } from '@playwright/test';
 import * as path from 'path';
+import * as fs from 'fs';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
+
+console.log('BASE_URL', process.env.BASE_URL);
+
 require('dotenv').config({ path: path.resolve(process.cwd(), '.env') });
 
 let userConfig: PlaywrightTestConfig = {};
 
 try {
-	userConfig = require(path.resolve(process.cwd() + 'playwright.config.ts'));
+	const userconfigPath = path.resolve(process.cwd() + 'playwright.config.ts');
+	if (fs.existsSync(userconfigPath)) {
+		const importedConfig = require(userconfigPath);
+		userConfig = importedConfig.default || importedConfig;
+	} else {
+		console.log('No custom configuration found');
+	}
 } catch (e) {
-	console.log('No custom configuration found');
+	console.log('No custom configuration found', e);
 }
 
 /**
