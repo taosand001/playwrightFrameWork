@@ -1,6 +1,6 @@
 {
 	"name": "playwrightframework",
-	"version": "1.0.16",
+	"version": "1.0.17",
 	"description": "This is a Legacy automation framework built on top playwright",
 	"main": "./build/index.js",
 	"scripts": {
