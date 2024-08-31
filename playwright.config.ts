@@ -1,15 +1,16 @@
 import { defineConfig, devices, PlaywrightTestConfig } from '@playwright/test';
+import * as path from 'path';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-require('dotenv').config({ path: process.cwd() + '.env' });
+require('dotenv').config({ path: path.resolve(process.cwd(), '.env') });
 
 let userConfig: PlaywrightTestConfig = {};
 
 try {
-	userConfig = require(process.cwd() + 'playwright.config.ts');
+	userConfig = require(path.resolve(process.cwd() + 'playwright.config.ts'));
 } catch (e) {
 	console.log('No custom configuration found');
 }
